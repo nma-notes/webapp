@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import MenuLink from "./components/MenuLink";
+import BaseMenuLink from "./components/BaseMenuLink";
 
 function App() {
   const links = [
@@ -23,6 +24,24 @@ function App() {
           ))}
         </div>
       </nav>
+      <div>Banner</div>
+      <div>Reviews</div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <footer>
+        <div
+          className={
+            "w-full flex justify-evenly items-center justify-items-center"
+          }
+        >
+          {links.map(({ label, link }) => (
+            <BaseMenuLink link={link} label={label} />
+          ))}
+        </div>
+      </footer>
     </div>
   );
 }
