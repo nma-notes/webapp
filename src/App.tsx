@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
 import MenuLink from "./components/MenuLink";
 import BaseMenuLink from "./components/BaseMenuLink";
 import Review from "./components/Review";
 import { faker } from "@faker-js/faker";
+
+import banner from "./assets/banner.jpg";
+import banner2 from "./assets/banner2.jpg";
 
 function App() {
   const links = [
@@ -15,7 +17,7 @@ function App() {
 
   return (
     <div className={"w-full flex flex-col"}>
-      <nav className={"w-full fixed"}>
+      <nav className={"w-full fixed bg-gray-800 z-50"}>
         <div
           className={
             "flex w-full justify-evenly items-center justify-items-center"
@@ -26,8 +28,22 @@ function App() {
           ))}
         </div>
       </nav>
-      <div className={"min-h-screen"}>
-        <div className={"mt-20 m-5"}>Banner</div>
+      <div className={"min-h-screen m-5"}>
+        <div
+          className={"md:mt-20 m-5 flex flex-col justify-center items-center"}
+        >
+          <h1 className={"text-3xl m-5"}>
+            Keep all your notes in the same place!
+          </h1>
+          <div className={"flex"}>
+            <img src={banner} alt={"Banner"} className={"rounded-2xl m-2"} />
+            <img
+              src={banner2}
+              alt={"Banner 2"}
+              className={"rounded-2xl m-2 hidden lg:block"}
+            />
+          </div>
+        </div>
         <div className={"m-5 flex flex-col lg:flex-row"}>
           {[...Array(3)].map((_, i) => (
             <Review
@@ -42,7 +58,7 @@ function App() {
       <footer>
         <div
           className={
-            "w-full flex justify-evenly items-center justify-items-center"
+            "w-full flex justify-evenly items-center justify-items-center md:m-5 mb-5"
           }
         >
           {links.map(({ label, link }, i) => (
