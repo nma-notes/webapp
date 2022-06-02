@@ -14,7 +14,7 @@ function App() {
   ];
 
   return (
-    <div className={"w-full"}>
+    <div className={"w-full flex flex-col"}>
       <nav className={"w-full fixed"}>
         <div
           className={
@@ -26,16 +26,18 @@ function App() {
           ))}
         </div>
       </nav>
-      <div>Banner</div>
-      <div>
-        {[...Array(10)].map((_, i) => (
-          <Review
-            key={i}
-            name={faker.name.findName()}
-            text={faker.lorem.text()}
-            avatarUrl={faker.internet.avatar()}
-          />
-        ))}
+      <div className={"min-h-screen"}>
+        <div className={"mt-20 m-5"}>Banner</div>
+        <div className={"m-5 flex flex-col lg:flex-row"}>
+          {[...Array(3)].map((_, i) => (
+            <Review
+              key={i}
+              name={faker.name.findName()}
+              text={faker.lorem.paragraph()}
+              avatarUrl={faker.internet.avatar()}
+            />
+          ))}
+        </div>
       </div>
       <footer>
         <div
