@@ -1,17 +1,27 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import MenuLink from "./components/MenuLink";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const links = [
+    { link: "/", label: "Home" },
+    { link: "/about", label: "About" },
+    { link: "/contacts", label: "Contacts" },
+    { link: "/sign_in", label: "Sign In" },
+    { link: "/sign_up", label: "Sign Up" },
+  ];
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <nav>
-        <Link to={"/sign_in"}>Sign in</Link> |{" "}
-        <Link to={"/sign_up"}>Sign up</Link>
+    <div className={"w-full"}>
+      <nav className={"w-full fixed"}>
+        <div
+          className={
+            "flex w-full justify-evenly items-center justify-items-center"
+          }
+        >
+          {links.map(({ label, link }) => (
+            <MenuLink link={link} label={label} />
+          ))}
+        </div>
       </nav>
     </div>
   );
