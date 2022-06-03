@@ -7,6 +7,7 @@ import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
 import About from "./routes/About";
 import Layout from "./components/Layout";
+import Contacts from "./routes/Contacts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -20,6 +21,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           element={
             <Layout>
               <About />
+            </Layout>
+          }
+        />
+        <Route
+          path={"/contacts"}
+          element={
+            <Layout>
+              <Contacts />
             </Layout>
           }
         />
