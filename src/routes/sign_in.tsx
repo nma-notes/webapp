@@ -23,6 +23,9 @@ export default function SignIn() {
           <Button>Sign In</Button>
           <LinkButton to={"/sign_up"}>Sign Up</LinkButton>
         </div>
+        <Link to={"/"} className={"hover:underline m-2 text-sm"}>
+          Back to home
+        </Link>
       </form>
     </div>
   );
