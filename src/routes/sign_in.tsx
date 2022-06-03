@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Input from "../components/Input";
 
 export default function SignIn() {
   return (
@@ -11,16 +12,8 @@ export default function SignIn() {
         }
       >
         <h2 className={"m2 text-xl"}>Sign In</h2>
-        <input
-          type={"email"}
-          placeholder={"Email"}
-          className={"text-black text-center p-1 m-2 rounded-lg"}
-        />
-        <input
-          type={"password"}
-          placeholder={"Password"}
-          className={"text-black text-center p-1 m-2 rounded-lg"}
-        />
+        <Input type={"email"} placeholder={"Email"} />
+        <Input type={"password"} placeholder={"Password"} />
         <Link to={"/"} className={"self-end hover:underline m-2 text-sm"}>
           Forgot your password?
         </Link>
