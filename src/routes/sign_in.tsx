@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 export default function SignIn() {
   return (
@@ -18,7 +19,7 @@ export default function SignIn() {
           Forgot your password?
         </Link>
         <div className={"flex justify-between w-full m-5 items-center"}>
-          <button className={"rounded border p-1"}>Sign In</button>
+          <Button>Sign In</Button>
           <Link to={"/sign_up"} className={"rounded border p-1"}>
             Sign Up
           </Link>
