@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignIn from "./routes/sign_in";
-import SignUp from "./routes/sign_up";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
 import About from "./routes/About";
 import Layout from "./components/Layout";
 
