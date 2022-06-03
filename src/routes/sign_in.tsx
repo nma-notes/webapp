@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import LinkButton from "../components/LinkButton";
 
 export default function SignIn() {
   return (
@@ -20,9 +21,7 @@ export default function SignIn() {
         </Link>
         <div className={"flex justify-between w-full m-5 items-center"}>
           <Button>Sign In</Button>
-          <Link to={"/sign_up"} className={"rounded border p-1"}>
-            Sign Up
-          </Link>
+          <LinkButton to={"/sign_up"}>Sign Up</LinkButton>
         </div>
       </form>
     </div>
