@@ -1,22 +1,13 @@
-import MenuLink from "./components/MenuLink";
-import BaseMenuLink from "./components/BaseMenuLink";
 import Review from "./components/Review";
 import { faker } from "@faker-js/faker";
 
 import banner from "./assets/banner.jpg";
 import banner2 from "./assets/banner2.jpg";
+import Layout from "./components/Layout";
 
 function App() {
-  const links = [
-    { link: "/", label: "Home" },
-    { link: "/about", label: "About" },
-    { link: "/contacts", label: "Contacts" },
-    { link: "/sign_in", label: "Sign In" },
-    { link: "/sign_up", label: "Sign Up" },
-  ];
-
   return (
-    <>
+    <Layout>
       <div className={"md:mt-20 m-5 flex flex-col justify-center items-center"}>
         <h1 className={"text-3xl m-5"}>
           Keep all your notes in the same place!
@@ -40,7 +31,7 @@ function App() {
           />
         ))}
       </div>
-    </>
+    </Layout>
   );
 }
 
