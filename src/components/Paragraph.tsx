@@ -2,9 +2,9 @@ import { FC } from "react";
 
 interface IParagraphProps {
   text: string;
-  imageUrl: string;
+  imageUrl?: string;
   imageAlt?: string;
-  imagePosition: "left" | "right";
+  imagePosition?: "left" | "right";
 }
 
 const Paragraph: FC<IParagraphProps> = ({
@@ -13,19 +13,20 @@ const Paragraph: FC<IParagraphProps> = ({
   imageAlt,
   imagePosition,
 }) => {
+  imagePosition = imagePosition || "left";
+  const image = (
+    <img
+      src={imageUrl}
+      alt={imageAlt || text}
+      className={"h-48 rounded-2xl m-5"}
+    />
+  );
+
   return (
-    <div className={"flex flex-col md:flex-row"}>
-      {imagePosition === "left" && (
-        <img
-          src={imageUrl}
-          alt={imageUrl || text}
-          className={"h-48 rounded-2xl m-5"}
-        />
-      )}
+    <div className={"flex flex-col md:flex-row items-center"}>
+      {imageUrl && imagePosition === "left" && image}
       <p className={"text-justify m-5"}>{text}</p>
-      {imagePosition === "right" && (
-        <img src={imageUrl} alt={imageAlt || text} />
-      )}
+      {image && imagePosition === "right" && image}
     </div>
   );
 };
