@@ -7,10 +7,15 @@ const useToken = () => {
     return userToken?.token;
   };
 
-  const [token, setToken] = useState(getToken());
+  const [token, setToken] = useState<string | undefined>(getToken());
 
-  const saveToken = (userToken: string) => {
-    sessionStorage.setItem("notes-token", JSON.stringify({ token: userToken }));
+  const saveToken = (userToken: string | undefined) => {
+    userToken
+      ? sessionStorage.setItem(
+          "notes-token",
+          JSON.stringify({ token: userToken })
+        )
+      : sessionStorage.removeItem("notes-token");
     setToken(userToken);
   };
 
