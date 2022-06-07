@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
+import FolderListItem from "../components/FolderListItem";
 
 const Note: FC = () => {
   const { uid } = useParams();
@@ -7,7 +8,9 @@ const Note: FC = () => {
 
   return (
     <div className={"flex"}>
-      <div>folders</div>
+      <div>
+        <FolderListItem />
+      </div>
       <div>notes</div>
       <div>note</div>
     </div>
