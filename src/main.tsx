@@ -9,6 +9,7 @@ import About from "./routes/About";
 import Layout from "./components/Layout";
 import Contacts from "./routes/Contacts";
 import { AuthProvider } from "./AuthContext";
+import Note from "./routes/Note";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               </Layout>
             }
           />
+          <Route path={"/notes/:uid"} element={<Note />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
