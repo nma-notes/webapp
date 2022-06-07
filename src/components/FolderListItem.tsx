@@ -4,7 +4,7 @@ import { FolderIcon } from "@heroicons/react/outline";
 const FolderListItem: FC = () => (
   <div className={"flex"}>
     <FolderIcon />
-    <span>Some name</span>
+    <span>Some folder name</span>
   </div>
 );
 
