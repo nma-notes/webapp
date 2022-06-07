@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useParams } from "react-router-dom";
 import FolderListItem from "../components/FolderListItem";
 import NoteListItem from "../components/NoteListItem";
+import TipTap from "../components/TipTap";
 
 const Note: FC = () => {
   const { uid } = useParams();
@@ -15,7 +16,9 @@ const Note: FC = () => {
       <div>
         <NoteListItem />
       </div>
-      <div className={"flex-1"}>note</div>
+      <div className={"flex-1 pt-20"}>
+        <TipTap />
+      </div>
     </div>
   );
 };
