@@ -10,9 +10,9 @@ const TipTap: FC = () => {
   });
 
   return (
-    <div>
+    <div className={"flex flex-col p-3"}>
       {editor && <EditorMenuBar editor={editor} />}
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor} className={"p-3"} />
     </div>
   );
 };
