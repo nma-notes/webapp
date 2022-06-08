@@ -9,14 +9,21 @@ const Note: FC = () => {
   console.log(uid);
 
   return (
-    <div className={"flex w-full justify-evenly"}>
-      <div>
-        <FolderListItem />
+    <div className={"flex w-full justify-evenly p-3 min-h-screen"}>
+      <div className={"flex flex-col"}>
+        <div className={"flex flex-col flex-1"}>
+          <FolderListItem />
+        </div>
+        <div className={"flex"}>Add button</div>
+        <div className={"flex"}>Login</div>
       </div>
-      <div>
-        <NoteListItem />
+      <div className={"flex flex-col"}>
+        <div className={"flex flex-col flex-1"}>
+          <NoteListItem />
+        </div>
+        <div className={"flex"}>Add button</div>
       </div>
-      <div className={"flex-1 pt-20"}>
+      <div className={"flex-1 p-3"}>
         <TipTap />
       </div>
     </div>
