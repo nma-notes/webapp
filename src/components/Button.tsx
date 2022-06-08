@@ -1,9 +1,4 @@
-import {
-  ButtonHTMLAttributes,
-  FC,
-  InputHTMLAttributes,
-  ReactNode,
-} from "react";
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
