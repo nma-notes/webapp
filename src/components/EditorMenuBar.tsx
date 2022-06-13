@@ -29,6 +29,7 @@ const EditorMenuBar: FC<{ editor: Editor }> = ({ editor }) => {
       </EditorMenuBarButton>
       {[...Array(6)].map((_, i) => (
         <EditorMenuBarButton
+          key={i}
           onClick={
             editor
               .chain()

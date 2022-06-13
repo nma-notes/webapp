@@ -44,7 +44,7 @@ const Note: FC = () => {
           style={{ maxHeight: "calc(100vh - 70px)" }}
         >
           {[...Array(1000)].map((_, i) => (
-            <NoteListItem />
+            <NoteListItem key={i} />
           ))}
         </div>
         <div className={"flex"}>

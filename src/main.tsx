@@ -10,6 +10,7 @@ import Layout from "./components/Layout";
 import Contacts from "./routes/Contacts";
 import { AuthProvider } from "./AuthContext";
 import Note from "./routes/Note";
+import RequireAuth from "./components/RequireAuth";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -35,7 +36,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               </Layout>
             }
           />
-          <Route path={"/notes/:uid"} element={<Note />} />
+          <Route
+            path={"/notes/:uid"}
+            element={
+              <RequireAuth>
+                <Note />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -1,23 +1,25 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import useToken from "../hooks/useToken";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface IRequireAuthProps {
   children: ReactNode;
 }
 
-const RequireAuth = (props: IRequireAuthProps) => {
+const RequireAuth: FC<IRequireAuthProps> = (props) => {
   const { children } = props;
   const { token } = useToken();
   const location = useLocation();
+  const navigate = useNavigate();
 
   if (!token) {
-    return (
-      <Navigate to={"/sign_in"} state={{ from: location }} replace={true} />
+    useEffect(
+      () => navigate("/sign_in", { state: { from: location }, replace: true }),
+      []
     );
   }
 
-  return children;
+  return <>{children}</>;
 };
 
 export default RequireAuth;
