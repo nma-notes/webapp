@@ -3,7 +3,7 @@ import useToken from "./hooks/useToken";
 
 interface IAuthContext {
   token: string | undefined;
-  signIn: (callback?: VoidFunction) => void;
+  signIn: (email: string, password: string, callback?: VoidFunction) => void;
   signOut: (callback?: VoidFunction) => void;
 }
 
@@ -14,8 +14,20 @@ export default AuthContext;
 export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { token, setToken } = useToken();
 
-  const signIn = (callback?: VoidFunction) => {
-    setToken("1234567890");
+  const signIn = async (
+    email: string,
+    password: string,
+    callback?: VoidFunction
+  ) => {
+    const response = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await response.json();
+    setToken(data.accessToken);
     if (callback) callback();
   };
 

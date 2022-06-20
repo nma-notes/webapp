@@ -12,7 +12,9 @@ export default function SignIn() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email, password);
+    if (!authCtx) return;
+
+    authCtx.signIn(email.trim(), password.trim());
   };
 
   return (
