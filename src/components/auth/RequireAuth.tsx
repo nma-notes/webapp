@@ -1,5 +1,5 @@
 import { FC, ReactNode, useEffect } from "react";
-import useToken from "../hooks/useToken";
+import useToken from "../../hooks/useToken";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface IRequireAuthProps {

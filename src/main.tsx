@@ -10,8 +10,8 @@ import Layout from "./components/Layout";
 import Contacts from "./routes/Contacts";
 import { AuthProvider } from "./AuthContext";
 import Note from "./routes/Note";
-import RequireAuth from "./components/RequireAuth";
-import RequireNoAuth from "./components/RequireNoAuth";
+import RequireAuth from "./components/auth/RequireAuth";
+import RequireNoAuth from "./components/auth/RequireNoAuth";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
