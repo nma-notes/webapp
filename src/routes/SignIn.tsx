@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import LinkButton from "../components/LinkButton";
@@ -9,12 +9,15 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!authCtx) return;
 
-    authCtx.signIn(email.trim(), password.trim());
+    authCtx.signIn(email.trim(), password.trim(), () => {
+      navigate("/notes/random");
+    });
   };
 
   return (
