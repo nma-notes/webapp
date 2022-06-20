@@ -11,6 +11,7 @@ import Contacts from "./routes/Contacts";
 import { AuthProvider } from "./AuthContext";
 import Note from "./routes/Note";
 import RequireAuth from "./components/RequireAuth";
+import RequireNoAuth from "./components/RequireNoAuth";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -18,8 +19,22 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path={"/sign_in"} element={<SignIn />} />
-          <Route path={"/sign_up"} element={<SignUp />} />
+          <Route
+            path={"/sign_in"}
+            element={
+              <RequireNoAuth>
+                <SignIn />
+              </RequireNoAuth>
+            }
+          />
+          <Route
+            path={"/sign_up"}
+            element={
+              <RequireNoAuth>
+                <SignUp />
+              </RequireNoAuth>
+            }
+          />
           <Route
             path={"/about"}
             element={
