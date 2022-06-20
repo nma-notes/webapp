@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import LinkButton from "../components/LinkButton";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import AuthContext from "../AuthContext";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const authCtx = useContext(AuthContext);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
