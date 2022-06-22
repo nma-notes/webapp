@@ -1,6 +1,9 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import folderApi from "../services/folder";
 
-const reducer = combineReducers({});
+const reducer = {
+  [folderApi.reducerPath]: folderApi.reducer,
+};
 
 export const store = configureStore({
   reducer,
