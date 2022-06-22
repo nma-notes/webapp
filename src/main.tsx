@@ -12,55 +12,59 @@ import { AuthProvider } from "./AuthContext";
 import Note from "./routes/Note";
 import RequireAuth from "./components/auth/RequireAuth";
 import RequireNoAuth from "./components/auth/RequireNoAuth";
+import { Provider } from "react-redux";
+import { store } from "./store/reducer";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route
-            path={"/sign_in"}
-            element={
-              <RequireNoAuth>
-                <SignIn />
-              </RequireNoAuth>
-            }
-          />
-          <Route
-            path={"/sign_up"}
-            element={
-              <RequireNoAuth>
-                <SignUp />
-              </RequireNoAuth>
-            }
-          />
-          <Route
-            path={"/about"}
-            element={
-              <Layout>
-                <About />
-              </Layout>
-            }
-          />
-          <Route
-            path={"/contacts"}
-            element={
-              <Layout>
-                <Contacts />
-              </Layout>
-            }
-          />
-          <Route
-            path={"/notes/:uid"}
-            element={
-              <RequireAuth>
-                <Note />
-              </RequireAuth>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <Provider store={store}>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route
+              path={"/sign_in"}
+              element={
+                <RequireNoAuth>
+                  <SignIn />
+                </RequireNoAuth>
+              }
+            />
+            <Route
+              path={"/sign_up"}
+              element={
+                <RequireNoAuth>
+                  <SignUp />
+                </RequireNoAuth>
+              }
+            />
+            <Route
+              path={"/about"}
+              element={
+                <Layout>
+                  <About />
+                </Layout>
+              }
+            />
+            <Route
+              path={"/contacts"}
+              element={
+                <Layout>
+                  <Contacts />
+                </Layout>
+              }
+            />
+            <Route
+              path={"/notes/:uid"}
+              element={
+                <RequireAuth>
+                  <Note />
+                </RequireAuth>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </Provider>
   </React.StrictMode>
 );

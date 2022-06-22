@@ -10,7 +10,6 @@ import MD5 from "crypto-js/md5";
 
 const Note: FC = () => {
   const { uid } = useParams();
-  console.log(uid);
   const hash = MD5("m.navrotskiy@gmail.com").toString();
 
   return (

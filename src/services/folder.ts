@@ -19,7 +19,7 @@ export const folderApi = createApi({
     // },
   }),
   endpoints: (builder) => ({
-    getFolders: builder.query<IFolder, string>({
+    getFolders: builder.query<IFolder, undefined>({
       query: () => "/",
     }),
   }),
