@@ -1,5 +1,6 @@
 import { createContext, FC, ReactNode } from "react";
 import useToken from "./hooks/useToken";
+import useEmail from "./hooks/useEmail";
 
 interface IAuthContext {
   token: string | undefined;
@@ -13,6 +14,7 @@ export default AuthContext;
 
 export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { token, setToken } = useToken();
+  const { setEmail } = useEmail();
 
   const signIn = async (
     email: string,
@@ -28,11 +30,13 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
     });
     const data = await response.json();
     setToken(data.accessToken);
+    setEmail(data.email);
     if (callback) callback();
   };
 
   const signOut = (callback?: VoidFunction) => {
     setToken(undefined);
+    setEmail(undefined);
     if (callback) callback();
   };
 

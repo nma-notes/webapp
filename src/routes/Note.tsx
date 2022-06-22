@@ -7,10 +7,12 @@ import Button from "../components/Button";
 import { PlusCircleIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/outline";
 import MD5 from "crypto-js/md5";
+import useEmail from "../hooks/useEmail";
 
 const Note: FC = () => {
   const { uid } = useParams();
-  const hash = MD5("m.navrotskiy@gmail.com").toString();
+  const { email } = useEmail();
+  const hash = MD5(email!).toString();
 
   return (
     <div className={"flex w-full justify-evenly p-3 min-h-screen"}>
