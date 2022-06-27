@@ -1,14 +1,21 @@
 import { FC, ReactNode } from "react";
 import MenuLink from "./MenuLink";
 import BaseMenuLink from "./BaseMenuLink";
+import useToken from "../hooks/useToken";
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+  const { token } = useToken();
+
   const links = [
     { link: "/", label: "Home" },
     { link: "/about", label: "About" },
     { link: "/contacts", label: "Contacts" },
-    { link: "/sign_in", label: "Sign In" },
-    { link: "/sign_up", label: "Sign Up" },
+    token
+      ? { link: "/notes/random", label: "Dashboard" }
+      : { link: "/sign_in", label: "Sign In" },
+    token
+      ? { link: "/sign_out", label: "Sign Out" }
+      : { link: "/sign_up", label: "Sign Up" },
   ];
 
   return (
