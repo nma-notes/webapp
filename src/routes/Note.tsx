@@ -8,11 +8,13 @@ import { PlusCircleIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/outline";
 import MD5 from "crypto-js/md5";
 import useEmail from "../hooks/useEmail";
+import { useGetFoldersQuery } from "../services/folder";
 
 const Note: FC = () => {
   const { uid } = useParams();
   const { email } = useEmail();
   const hash = MD5(email!).toString();
+  const { data, error, isLoading } = useGetFoldersQuery();
 
   return (
     <div className={"flex w-full justify-evenly p-3 min-h-screen"}>

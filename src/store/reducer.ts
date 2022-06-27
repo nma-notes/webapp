@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import folderApi from "../services/folder";
-
-const reducer = {
-  [folderApi.reducerPath]: folderApi.reducer,
-};
+import { folderApi } from "../services/folder";
 
 export const store = configureStore({
-  reducer,
+  reducer: {
+    [folderApi.reducerPath]: folderApi.reducer,
+  },
   devTools: true,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(folderApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

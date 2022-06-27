@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export interface IFolder {
   id: string;
@@ -6,23 +6,23 @@ export interface IFolder {
 }
 
 export const folderApi = createApi({
-  reducerPath: "folderApi",
+  reducerPath: "folders",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000/folders",
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
-    //   if (token) {
-    //     headers.set("Authorization", `Bearer ${token}`);
-    //   }
-    //
-    //   return headers;
-    // },
+    baseUrl: "http://localhost:3000",
+    prepareHeaders: (headers, _) => {
+      const session = sessionStorage.getItem("notes-token");
+      if (session) {
+        const { token } = JSON.parse(session);
+        headers.set("Authorization", `bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
-    getFolders: builder.query<IFolder, undefined>({
-      query: () => "/",
+    getFolders: builder.query<IFolder[], void>({
+      query: () => "folders",
     }),
   }),
 });
 
-export default folderApi;
+export const { useGetFoldersQuery } = folderApi;
