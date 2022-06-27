@@ -14,7 +14,7 @@ const Note: FC = () => {
   const { uid } = useParams();
   const { email } = useEmail();
   const hash = MD5(email!).toString();
-  const { data, error, isLoading } = useGetFoldersQuery();
+  const { data: folders, error, isLoading } = useGetFoldersQuery();
 
   return (
     <div className={"flex w-full justify-evenly p-3 min-h-screen"}>
@@ -23,9 +23,10 @@ const Note: FC = () => {
           className={"flex flex-col flex-1 overflow-auto"}
           style={{ maxHeight: "calc(100vh - 138px)" }}
         >
-          {[...Array(1000)].map((_, i) => (
-            <FolderListItem key={i} />
-          ))}
+          {folders &&
+            folders.map((item) => (
+              <FolderListItem key={item.id} folder={item} />
+            ))}
         </div>
         <div className={"flex py-3"}>
           <Button title={"Add Folder"} className={"flex items-center"}>
